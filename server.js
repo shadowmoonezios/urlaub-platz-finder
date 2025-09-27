@@ -10,7 +10,7 @@ app.use(express.json());
 
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/urlaubplatzfinder';
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => {
     console.error('MongoDB connection error:', err);
