@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // MongoDB Verbindung
-mongoose.connect('mongodb://localhost:27017/urlaubplatzfinder', { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/urlaubplatzfinder';
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB verbunden'))
   .catch(err => console.error(err));
 
